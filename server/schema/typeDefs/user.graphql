@@ -1,0 +1,23 @@
+type User {
+  id: ID!
+  email: String!
+  type: String!
+  cclast4: String
+}
+
+input Input {
+  email: String!
+  password: String!
+}
+
+extend type Query {
+  me: User
+}
+
+extend type Mutation {
+  register(input: Input!): Boolean!
+  login(input: Input!): User
+  createSubscription(source: String!, cclast4: String!): User
+  changeCreditCard(source: String!, cclast4: String!): User
+  cancelSubscription: User
+}
